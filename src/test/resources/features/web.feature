@@ -10,14 +10,17 @@ Feature: UI Testing
     Then I check Condor "Customer Support" page is "opened"
 
   @ui
-  Scenario: User searchs for the flights
-    And I click on "From" input
-    And I type "Bristol" into departure input field
-    And I type "Florida" into destination input field
-    And I click on "One way" button
+  Scenario Outline: User searchs for the flights
+    And I click on "<input>" input
+    And I type "<departure>" into departure input field
+    And I type "<destination>" into destination input field
+    And I click on "<button>" button
     And I select available day
     And I click on Continue button
     Then I check Condor "Outbound Flight" page is opened
+    Examples:
+      | input | departure | destination | button  |
+      | From  | Bristol   | Florida     | One way |
 
 
 

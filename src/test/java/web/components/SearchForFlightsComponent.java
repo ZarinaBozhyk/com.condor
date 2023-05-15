@@ -31,7 +31,6 @@ public class SearchForFlightsComponent implements BaseComponent {
     public void close() {
         clickXButton();
         Browser.waiter().sleep(TimeOutConstants.DEFAULT_TIMEOUT_5_000_MS);
-
     }
 
     public void clickXButton() {

@@ -13,9 +13,9 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Comments {
-    public int postId;
-    public int id;
-    public String name;
-    public String email;
-    public String body;
+    private int postId;
+    private int id;
+    private String name;
+    private String email;
+    private String body;
 }

@@ -14,9 +14,14 @@ import java.util.Properties;
 public class PropertiesLoader {
     private static final String pathToBrowserPropertyFile = "src/test/resources/browser.properties";
     private static final String pathToCondorPropertyFile = "src/test/resources/uitests.properties";
+    private static final String pathToApiPropertyFile = "src/test/resources/apitests.properties";
 
     public static String getBaseUrl() {
         return getProperty(pathToCondorPropertyFile, "baseUrl");
+    }
+
+    public static String getBaseUri() {
+        return getProperty(pathToApiPropertyFile, "baseUri");
     }
 
     //<editor-fold desc="public methods">

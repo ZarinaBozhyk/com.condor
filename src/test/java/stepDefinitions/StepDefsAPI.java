@@ -94,7 +94,6 @@ public class StepDefsAPI {
         softAssert.assertAll();
     }
 
-
     @When("I check that {string} header value from the response is {string}")
     public void iCheckThatValueFromTheResponseIs(String headerName, String expectedHeaderValue) {
         Integer id = (Integer) Context.getValue(ContextKeys.VALUE);

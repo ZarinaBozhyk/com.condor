@@ -1,5 +1,6 @@
 package api;
 
+import helpers.PropertiesLoader;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -13,24 +14,23 @@ import io.restassured.specification.RequestSpecification;
  * #Comments:
  */
 public class Endpoints {
-
-    private static final String BASE_URL = "https://jsonplaceholder.typicode.com";
+    private static final String PAGE_URL = PropertiesLoader.getBaseUri();
 
     //<editor-fold desc="public methods">
     public static Response getUsers() {
-        RestAssured.baseURI = BASE_URL;
+        RestAssured.baseURI = PAGE_URL;
         RequestSpecification request = RestAssured.given();
         return request.get(Route.users());
     }
 
     public static Response getCommentsByUserId(Integer id) {
-        RestAssured.baseURI = BASE_URL;
+        RestAssured.baseURI = PAGE_URL;
         RequestSpecification request = RestAssured.given();
         return request.get(Route.comments(id));
     }
 
     public static Response getAlbumsByUserId(Integer id) {
-        RestAssured.baseURI = BASE_URL;
+        RestAssured.baseURI = PAGE_URL;
         RequestSpecification request = RestAssured.given();
         return request.get(Route.albums(id));
     }
