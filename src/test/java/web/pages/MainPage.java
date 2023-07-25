@@ -4,6 +4,7 @@ import helpers.PropertiesLoader;
 import helpers.TimeOutConstants;
 import io.github.sukgu.Shadow;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import web.browser.Browser;
 
@@ -62,9 +63,9 @@ public class MainPage extends BasePage {
     //<editor-fold desc="private methods">
     private static void clickOnShadowElement() {
         Browser.waiter().sleep(TimeOutConstants.DEFAULT_TIMEOUT_5_000_MS);
-        Shadow shadow = new Shadow(getDriver());
-        WebElement shadowElement = shadow.findElement("#uc-center-container > div.sc-cCjUiG.gHlwwJ > div > div.sc-lllmON.fjvxqY > div > button.sc-eDvSVe.gXvQbG");
-        shadowElement.click();
+        JavascriptExecutor jse = (JavascriptExecutor) getDriver();
+        WebElement acceptCookies = (WebElement) jse.executeScript("return document.querySelector('#usercentrics-root').shadowRoot.querySelector('button[data-testid=\"uc-accept-all-button\"]')");
+        jse.executeScript("arguments[0].click();", acceptCookies);
     }
 
     private By getLogoXpath() {
